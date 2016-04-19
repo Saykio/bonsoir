@@ -25,7 +25,7 @@ if ($row_cnt > 0) {
     
     // looping through all results
     // products node
-    $response["employe"] = array();
+    $response["departement"] = array();
     
      while ($row = mysqli_fetch_array($result)) {
         // temp user array
