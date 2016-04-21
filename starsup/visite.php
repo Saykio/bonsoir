@@ -29,7 +29,8 @@ if (isset($_GET['test']) && $_GET['test'] != ''  ){
 	}     
 
 
-  $sql = $dbh->prepare("INSERT INTO visiter VALUES (:hebergement, :inspecteur, :saison, NULL, :date_visite, NULL, NULL)");
+    $sql = $dbh->prepare("INSERT INTO visiter (ID_HEBERGEMENT, ID_INSPECTEUR, ID_SAISON, NOMBRE_ETOILE_VISITE, DATE_HEURE_VISITE, CONTRE_VISITE, COMMENTAIRE_VISITE) 
+  						VALUES (:hebergement, :inspecteur, :saison, NULL, :date_visite, NULL, NULL)");
   //mysqli_query($sql) or die('Erreur SQL !'.$sql.'<br>'.mysql_error()); 
   $sql->execute(array("hebergement" => $_GET['hebergement'], "inspecteur" => $_GET['inspecteur'], "saison" => $_GET['saison'], "date_visite" => $date_visite));
   echo "<script>alert(\"Visite ajoutée\")</script>";
