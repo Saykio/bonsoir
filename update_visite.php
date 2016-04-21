@@ -16,7 +16,7 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
  
 // get all products from products table
-if (isset($_GET['ID_HEBERGEMENT']) && isset($_GET['']) && isset($_GET['CONTRE_VISITE']) && isset($_GET['COMMENTAIRE_VISITE'])) {
+if (isset($_GET['ID_HEBERGEMENT']) && isset($_GET['NOMBRE_ETOILE_VISITE']) && isset($_GET['CONTRE_VISITE']) && isset($_GET['COMMENTAIRE_VISITE'])) {
     $ID_HEBERGEMENT = $_GET['ID_HEBERGEMENT'];
     $NOMBRE_ETOILE_VISITE = $_GET['NOMBRE_ETOILE_VISITE'];
     $CONTRE_VISITE = $_GET['CONTRE_VISITE'];
