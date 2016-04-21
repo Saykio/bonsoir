@@ -24,7 +24,7 @@ if (isset($_GET['ID_HEBERGEMENT']) && isset($_GET['NOMBRE_ETOILE_VISITE']) && is
  $con = $db->connect();
     
     // mysql inserting a new row
-    $result = $con->query("Udpate visiter set NOMBRE_ETOILE_VISITE ='$NOMBRE_ETOILE_VISITE' , CONTRE_VISITE = '$CONTRE_VISITE' , COMMENTAIRE_VISITE = '$COMMENTAIRE_VISITE' where ID_HEBERGEMENT = '$ID_HEBERGEMENT'");
+    $result = $con->query("Update visiter set NOMBRE_ETOILE_VISITE ='$NOMBRE_ETOILE_VISITE' , CONTRE_VISITE = '$CONTRE_VISITE' , COMMENTAIRE_VISITE = '$COMMENTAIRE_VISITE' where ID_HEBERGEMENT = '$ID_HEBERGEMENT'");
  
     // check if row inserted or not
     if ($result) {
