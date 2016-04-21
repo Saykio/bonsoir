@@ -31,7 +31,7 @@ if ($row_cnt > 0) {
     
     // looping through all results
     // products node
-    $response["visiter"] = array();
+    $response["visite"] = array();
     
      while ($row = mysqli_fetch_array($result)) {
         // temp user array
@@ -43,10 +43,9 @@ if ($row_cnt > 0) {
 	$product["DATE_HEURE_VISITE"] = $row["DATE_HEURE_VISITE"];
         $product["CONTRE_VISITE"] = $row["CONTRE_VISITE"];
         $product["COMMENTAIRE_VISITE"] = $row["COMMENTAIRE_VISITE"];
-        $product["TYPE_VISITE"] = $row["TYPE_VISITE"];
  
         // push single product into final response array
-        array_push($response["visiter"], $product);
+        array_push($response["visite"], $product);
     }
     
      // success
@@ -57,7 +56,7 @@ if ($row_cnt > 0) {
 } else {
         // no products found
     $response["success"] = 0;
-    $response["message"] = "pas de conge trouvés";
+    $response["message"] = "pas de visite trouvés";
  
     // echo no users JSON
     echo json_encode($response);
