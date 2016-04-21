@@ -17,12 +17,12 @@ $db = new DB_CONNECT();
  
 // get all products from products table
 if (isset($_GET['ID_INSPECTEUR'])) {
-    $id_employe = $_GET['ID_INSPECTEUR'];}
+    $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];}
 $con = $db->connect();
-if (isset($id_employe)){
-	$result = $con->query("SELECT * FROM visite where ID_INSPECTEUR = $ID_INSPECTEUR");
+if (isset($ID_INSPECTEUR)){
+	$result = $con->query("SELECT * FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
 	} else { 
-	$result = $con->query("SELECT * FROM visite");
+	$result = $con->query("SELECT * FROM visiter");
 	}
 $row_cnt = $result->num_rows;
   
@@ -31,7 +31,7 @@ if ($row_cnt > 0) {
     
     // looping through all results
     // products node
-    $response["visite"] = array();
+    $response["visiter"] = array();
     
      while ($row = mysqli_fetch_array($result)) {
         // temp user array
@@ -40,13 +40,13 @@ if ($row_cnt > 0) {
         $product["ID_INSPECTEUR"] = $row["ID_INSPECTEUR"];
         $product["ID_SAISON"] = $row["ID_SAISON"];
         $product["NOMBRE_ETOILE_VISITE"] = $row["NOMBRE_ETOILE_VISITE"];
-		$product["DATE_HEURE_VISITE"] = $row["DATE_HEURE_VISITE"];
+	$product["DATE_HEURE_VISITE"] = $row["DATE_HEURE_VISITE"];
         $product["CONTRE_VISITE"] = $row["CONTRE_VISITE"];
         $product["COMMENTAIRE_VISITE"] = $row["COMMENTAIRE_VISITE"];
         $product["TYPE_VISITE"] = $row["TYPE_VISITE"];
  
         // push single product into final response array
-        array_push($response["visite"], $product);
+        array_push($response["visiter"], $product);
     }
     
      // success
