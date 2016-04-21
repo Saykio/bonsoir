@@ -17,7 +17,7 @@ $db = new DB_CONNECT();
  
 // get all products from products table
 $con = $db->connect();
-$result = $con->query("SELECT * FROM gerant");
+$result = $con->query("SELECT * FROM inspecteur");
 $row_cnt = $result->num_rows;
   
 // check for empty result
@@ -25,20 +25,21 @@ if ($row_cnt > 0) {
     
     // looping through all results
     // products node
-    $response["gerant"] = array();
+    $response["inspecteur"] = array();
     
      while ($row = mysqli_fetch_array($result)) {
         // temp user array
         $product = array();
-        $product["ID_GERANT"] = $row["ID_GERANT"];
-        $product["NOM_GERANT"] = $row["NOM_GERANT"];
-        $product["PRENOM_GERANT"] = $row["PRENOM_GERANT"];
+        $product["ID_INSPECTEUR"] = $row["ID_INSPECTEUR"];
+        $product["ID_SPECIALITE"] = $row["ID_SPECIALITE"];
+        $product["NOM_INSPECTEUR"] = $row["NOM_INSPECTEUR"];
+        $product["PRENOM_INSPECTEUR"] = $row["PRENOM_INSPECTEUR"];
         $product["LOGIN"] = $row["LOGIN"];
         $product["MDP"] = $row["MDP"];
 
  
         // push single product into final response array
-        array_push($response["gerant"], $product);
+        array_push($response["inspecteur"], $product);
     }
     
      // success
@@ -49,7 +50,7 @@ if ($row_cnt > 0) {
 } else {
         // no products found
     $response["success"] = 0;
-    $response["message"] = "pas de conge trouvés";
+    $response["message"] = "pas d'inspecteur trouvés";
  
     // echo no users JSON
     echo json_encode($response);
