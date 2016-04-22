@@ -17,7 +17,7 @@ $db = new DB_CONNECT();
  
 // get all products from products table
 if (isset($_GET['ID_INSPECTEUR'])) {
-    $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];}
+    $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];
 $con = $db->connect();
 $result = $con->query("SELECT count(ID_INSPECTEUR) FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
 $row_cnt = $result->num_rows;
@@ -27,27 +27,19 @@ if ($row_cnt > 0) {
     
     // looping through all resultsif
     // products node
-    $response["nbvisite"] = array();
+    $response["visite"] = array();
     
-     /*while ($row = mysqli_fetch_array($result)) {
+     while ($row = mysqli_fetch_array($result)) {
         // temp user array
         $product = array();
         $product["ID_INSPECTEUR"] = $row["ID_INSPECTEUR"];
-        $product["ID_SPECIALITE"] = $row["ID_SPECIALITE"];
+        /*$product["ID_SPECIALITE"] = $row["ID_SPECIALITE"];
         $product["NOM_INSPECTEUR"] = $row["NOM_INSPECTEUR"];
         $product["PRENOM_INSPECTEUR"] = $row["PRENOM_INSPECTEUR"];
         $product["LOGIN"] = $row["LOGIN"];
         $product["MDP"] = $row["MDP"];*/
-        $donnee = mysqli_fetch_array($result);
-        $nb_visite = $donnee['nb_visite'];
-        
-        echo $nb_visite;
-        
-        
-
- 
         // push single product into final response array
-        array_push($response["nbvisite"], $product);
+        array_push($response["visite"], $product);
     }
    
     
@@ -63,4 +55,5 @@ if ($row_cnt > 0) {
  
     // echo no users JSON
     echo json_encode($response);
+}
 }
