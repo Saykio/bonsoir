@@ -39,12 +39,14 @@ if ($row_cnt > 0) {
         $product["LOGIN"] = $row["LOGIN"];
         $product["MDP"] = $row["MDP"];
         
-        echo "requete $result";
+        
 
  
         // push single product into final response array
         array_push($response["nbvisite"], $product);
     }
+    
+    echo "requete $result";
     
      // success
     $response["success"] = 1;
