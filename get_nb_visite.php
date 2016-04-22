@@ -32,12 +32,14 @@ if ($row_cnt > 0) {
      while ($row = mysqli_fetch_array($result)) {
         // temp user array
         $product = array();
-        /*$product["ID_INSPECTEUR"] = $row["ID_INSPECTEUR"];
+        $product["ID_INSPECTEUR"] = $row["ID_INSPECTEUR"];
         $product["ID_SPECIALITE"] = $row["ID_SPECIALITE"];
         $product["NOM_INSPECTEUR"] = $row["NOM_INSPECTEUR"];
         $product["PRENOM_INSPECTEUR"] = $row["PRENOM_INSPECTEUR"];
         $product["LOGIN"] = $row["LOGIN"];
-        $product["MDP"] = $row["MDP"];*/
+        $product["MDP"] = $row["MDP"];
+        
+        echo $result;
 
  
         // push single product into final response array
