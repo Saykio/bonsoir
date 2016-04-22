@@ -29,7 +29,7 @@ if ($row_cnt > 0) {
     // products node
     $response["nbvisite"] = array();
     
-     while ($row = mysqli_fetch_array($result)) {
+     /*while ($row = mysqli_fetch_array($result)) {
         // temp user array
         $product = array();
         $product["ID_INSPECTEUR"] = $row["ID_INSPECTEUR"];
@@ -37,7 +37,11 @@ if ($row_cnt > 0) {
         $product["NOM_INSPECTEUR"] = $row["NOM_INSPECTEUR"];
         $product["PRENOM_INSPECTEUR"] = $row["PRENOM_INSPECTEUR"];
         $product["LOGIN"] = $row["LOGIN"];
-        $product["MDP"] = $row["MDP"];
+        $product["MDP"] = $row["MDP"];*/
+        $donnee = mysqli_fetch_array($result);
+        $nb_visite = $donnee['nb_visite'];
+        
+        echo $nb_visite;
         
         
 
@@ -45,8 +49,7 @@ if ($row_cnt > 0) {
         // push single product into final response array
         array_push($response["nbvisite"], $product);
     }
-    
-    echo "requete $result";
+   
     
      // success
     $response["success"] = 1;
