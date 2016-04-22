@@ -40,10 +40,10 @@ if ($row_cnt > 0) {
         $product["MDP"] = $row["MDP"];*/
         // push single product into final response array
         array_push($response["visite"], $product);
-    
+    echo "bonsoir $result";
      // success
     $response["success"] = 1;
-    echo $result;
+    
  
     // echoing JSON response
     echo json_encode($response);
