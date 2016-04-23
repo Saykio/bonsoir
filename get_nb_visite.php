@@ -18,7 +18,7 @@ $db = new DB_CONNECT();
 if (isset($_GET['ID_INSPECTEUR'])) {
 $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];
 $con = $db->connect();
-$result = $con->query("SELECT ID_INSPECTEUR FROM visiter where ID_INSPECTEUR = '$ID_INSPECTEUR'");
+$result = $con->query("SELECT count(*) as nb_visites FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
 $row_cnt = $result->num_rows;
   echo "nbvisite $result";
 // check for empty result
@@ -31,7 +31,7 @@ if ($row_cnt > 0) {
      while ($row = mysqli_fetch_array($result)) {
         // temp user array
         $product = array();
-        $product["ID_INSPECTEUR"] = $row["ID_INSPECTEUR"];
+        $product["nb_visites"] = $row["nb_visites"];
         /*$product["nb_visites"] = $row["nb_visites"];
         $product["ID_SPECIALITE"] = $row["ID_SPECIALITE"];
         $product["NOM_INSPECTEUR"] = $row["NOM_INSPECTEUR"];
@@ -58,3 +58,4 @@ if ($row_cnt > 0) {
     echo json_encode($response);
 }
 }
+?>
