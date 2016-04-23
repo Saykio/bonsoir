@@ -16,8 +16,8 @@ require_once __DIR__ . '/db_connect.php';
 $db = new DB_CONNECT();
 // get all products from products table
 if (isset($_GET['ID_INSPECTEUR'])) {
-echo "toto";
 $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];
+echo "toto $ID_INSPECTEUR";
 }
 $con = $db->connect();
 $result = $con->query("SELECT count(*) as nb_visites FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
