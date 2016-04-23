@@ -17,15 +17,11 @@ $db = new DB_CONNECT();
 // get all products from products table
 if (isset($_GET['ID_INSPECTEUR'])) {
 $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];
-echo "toto $ID_INSPECTEUR";
 }
 $con = $db->connect();
-echo "SELECT count(*) as nb_visites FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR";
 $result = $con->query("SELECT count(*) as nb_visites FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
-echo "query";
 $row_cnt = $result->num_rows;
-echo "num_rows";
-echo "nbvisite $result";
+echo "nbvisite $row_cnt";
 // check for empty result
 if ($row_cnt > 0) {
     
