@@ -28,7 +28,6 @@ if ($row_cnt > 0) {
     // looping through all resultsif
     // products node
     $response["visite"] = array();
-    echo "bonsoir $result";
      while ($row = mysqli_fetch_array($result)) {
         // temp user array
         $product = array();
