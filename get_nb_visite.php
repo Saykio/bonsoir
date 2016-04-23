@@ -21,7 +21,7 @@ if (isset($_GET['ID_INSPECTEUR'])) {
 $con = $db->connect();
 $result = $con->query("SELECT count(ID_INSPECTEUR) as nb_visites FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
 $row_cnt = $result->num_rows;
-  
+  echo "nbvisite $result";
 // check for empty result
 if ($row_cnt > 0) {
     
