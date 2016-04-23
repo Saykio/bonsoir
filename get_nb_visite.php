@@ -28,7 +28,7 @@ if ($row_cnt > 0) {
     // looping through all resultsif
     // products node
     $response["visite"] = array();
-    
+    echo "bonsoir $result";
      while ($row = mysqli_fetch_array($result)) {
         // temp user array
         $product = array();
@@ -50,7 +50,7 @@ if ($row_cnt > 0) {
     echo json_encode($response);
      }
 } else {
- echo "bonsoir $result";
+ 
         // no products found
     $response["success"] = 0;
     $response["message"] = "pas de conge trouvés";
