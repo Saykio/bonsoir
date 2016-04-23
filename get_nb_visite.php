@@ -19,7 +19,7 @@ $db = new DB_CONNECT();
 if (isset($_GET['ID_INSPECTEUR'])) {
     $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];
 $con = $db->connect();
-$result = $con->query("SELECT count(ID_INSPECTEUR) FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
+$result = $con->query("SELECT count(ID_INSPECTEUR) as visite FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
 $row_cnt = $result->num_rows;
   
 // check for empty result
