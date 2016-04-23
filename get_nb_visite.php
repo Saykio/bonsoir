@@ -14,15 +14,15 @@ require_once __DIR__ . '/db_connect.php';
  
 // connecting to db
 $db = new DB_CONNECT();
-echo "toto";
 // get all products from products table
 if (isset($_GET['ID_INSPECTEUR'])) {
+echo "toto";
 $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];
 }
 $con = $db->connect();
 $result = $con->query("SELECT count(*) as nb_visites FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
 $row_cnt = $result->num_rows;
-  echo "nbvisite $result";
+echo "nbvisite $result";
 // check for empty result
 if ($row_cnt > 0) {
     
