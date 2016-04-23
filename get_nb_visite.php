@@ -17,7 +17,7 @@ $db = new DB_CONNECT();
  
 // get all products from products table
 if (isset($_GET['ID_INSPECTEUR'])) {
-    $id_employe = $_GET['ID_INSPECTEUR'];
+    $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];
 $con = $db->connect();
 $result = $con->query("SELECT count(ID_INSPECTEUR) as nb_visites FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR");
 $row_cnt = $result->num_rows;
