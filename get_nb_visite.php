@@ -23,7 +23,6 @@ $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];
 $con = $db->connect();
 $result = $con->query("SELECT count(*) as nb_visites FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR and DATE_HEURE_VISITE between '$datejour' and '$date'");
 $row_cnt = $result->num_rows;
-echo "nbvisite $row_cnt";
 // check for empty result
 if ($row_cnt > 0) {
     
