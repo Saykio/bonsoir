@@ -22,7 +22,7 @@ if (isset($_GET['ID_INSPECTEUR'])) {
     $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];}
 $con = $db->connect();
 if (isset($ID_INSPECTEUR)){
-	$result = $con->query("SELECT * FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR and DATE_HEURE_VISITE < '$date'");
+	$result = $con->query("SELECT * FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR and DATE_HEURE_VISITE between '$datejour' and '$date'");
 	} else { 
 	$result = $con->query("SELECT * FROM visiter");
 	}
