@@ -21,11 +21,7 @@ $date = date('Y-m-d', strtotime("+7 day", strtotime($datejour)));
 if (isset($_GET['ID_INSPECTEUR'])) {
     $ID_INSPECTEUR = $_GET['ID_INSPECTEUR'];}
 $con = $db->connect();
-if (isset($ID_INSPECTEUR)){
-	$result = $con->query("SELECT * FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR and DATE_HEURE_VISITE > '$date'");
-	} else { 
-	$result = $con->query("SELECT * FROM visiter");
-	}
+$result = $con->query("SELECT * FROM visiter where ID_INSPECTEUR = $ID_INSPECTEUR and DATE_HEURE_VISITE > '$date'");
 $row_cnt = $result->num_rows;
   
 // check for empty result
