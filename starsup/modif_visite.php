@@ -38,7 +38,7 @@ $req = $dbh->query('UPDATE visiter SET NOMBRE_ETOILE_VISITE="'.$_GET['etoile'].'
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index_admin.php">Accueuil</a></li>
+						<li class="active"><a href="index_admin.php">Accueil</a></li>
 						<li><a href="index.php">Déconnexion</a></li>
 					</ul>
 				</nav>
@@ -58,28 +58,7 @@ $req = $dbh->query('UPDATE visiter SET NOMBRE_ETOILE_VISITE="'.$_GET['etoile'].'
 				
 				<div id="content" class="container">
 
-	<form action="modif_visite_debut.php" name="ajout_visite" method="post">
-
-	      				<p>Année :
-	              <select name="date">
-	              <?php
-	              $truc = '2016';
-	             	$req = $dbh->query('SELECT * FROM visiter');
-					while ($donnees = $req->fetch())
-	              	{
-
-					$date = date_parse($donnees['DATE_HEURE_VISITE']);
-    				$year = $date['year'];
-    				if($year !=$truc)
-    				{
-	                echo'<option>'.$year.'</option>';  
-	                $truc = $year;     
-	                } 		
-	             	}
-	              ?>
-	               </select>
-	      			<INPUT TYPE="submit" name="valider" value="Valider">
-    		</form>	
+	
 
 			<?php 
 $req = $dbh->query('SELECT * FROM visiter as V Inner join hebergement as H on V.ID_HEBERGEMENT = H.ID_HEBERGEMENT WHERE CONTRE_VISITE = 1');

@@ -30,7 +30,7 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index_inspecteur.php">Accueuil</a></li>
+						<li class="active"><a href="index_inspecteur.php">Accueil</a></li>
 						<li><a href="index.php">Déconnexion</a></li>
 					</ul>
 				</nav>

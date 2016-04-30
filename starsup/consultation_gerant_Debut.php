@@ -32,7 +32,7 @@ include("include/config.php");
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index_gerant.php">Accueuil</a></li>
+						<li class="active"><a href="index_gerant.php">Accueil</a></li>
 						<li><a href="index.php">Déconnexion</a></li>
 				</nav>
 			</div>
@@ -58,21 +58,10 @@ include("include/config.php");
 
 	      				<p>Année :
 	              <select name="date">
-	              <?php
-	              	$truc = '2016';
-	             	$req = $dbh->query('SELECT * FROM visiter');
-					while ($donnees = $req->fetch())
-	              	{
+	             		<option>2016</option>
+	             		<option>2017</option>
+	             		<option>2018</option>
 
-					$date = date_parse($donnees['DATE_HEURE_VISITE']);
-    				$year = $date['year'];
-    				if($year !=$truc)
-    				{
-	                echo'<option>'.$year.'</option>';  
-	                $truc = $year;     
-	                } 		
-	             	}
-	              ?>
 	               </select>
 	      			<INPUT TYPE="submit" value="Valider">
     		</form>

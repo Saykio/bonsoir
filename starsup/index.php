@@ -34,7 +34,7 @@ session_destroy();
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index.php">Accueuil</a></li>
+						<li class="active"><a href="index.php">Accueil</a></li>
 					</ul>
 				</nav>
 			</div>

@@ -68,7 +68,7 @@ if (isset($_GET['date_visite']) && $_GET['date_visite'] != ''  ){
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index_admin.php">Accueuil</a></li>
+						<li class="active"><a href="index_admin.php">Accueil</a></li>
 						<li><a href="index.php">Déconnexion</a></li>
 					</ul>
 				</nav>
