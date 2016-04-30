@@ -1,7 +1,7 @@
 <?php include("include/config.php"); 
 
 
-if (isset($_GET['test']) && $_GET['test'] != ''  ){
+if (isset($_GET['date_visite']) && $_GET['date_visite'] != ''  ){
 
 
 	/*if(isset($_GET['hebergement']))
@@ -18,21 +18,19 @@ if (isset($_GET['test']) && $_GET['test'] != ''  ){
 	{     
 		$saison=$_GET['saison'];
 	}
-	*/ 
-	if(isset($_GET['date_visite']) && !empty($_GET['date_visite']))
+	
+	if(isset($_GET['date_visite']) && $_GET['date_visite'] != '0000-00-00 00:00:00')
 	{     
 		$date_visite=$_GET['date_visite'];
 	}
 	
 	else{
-		$date_visite = NULL;
-	}     
+		$date_visite="NULL";
+	}  */    
 
 
-    $sql = $dbh->prepare("INSERT INTO visiter (ID_HEBERGEMENT, ID_INSPECTEUR, ID_SAISON, NOMBRE_ETOILE_VISITE, DATE_HEURE_VISITE, CONTRE_VISITE, COMMENTAIRE_VISITE) 
-  						VALUES (:hebergement, :inspecteur, :saison, NULL, :date_visite, NULL, NULL)");
-  //mysqli_query($sql) or die('Erreur SQL !'.$sql.'<br>'.mysql_error()); 
-  $sql->execute(array("hebergement" => $_GET['hebergement'], "inspecteur" => $_GET['inspecteur'], "saison" => $_GET['saison'], "date_visite" => $date_visite));
+  $sql = $dbh->prepare("INSERT INTO visiter VALUES (:hebergement, :inspecteur, :saison, NULL, :date_visite, NULL, NULL)");
+  $sql->execute(array("hebergement" => $_GET['hebergement'], "inspecteur" => $_GET['inspecteur'], "saison" => $_GET['saison'], "date_visite" => $_GET['date_visite']));
   echo "<script>alert(\"Visite ajoutée\")</script>";
 
 }
@@ -47,7 +45,7 @@ if (isset($_GET['test']) && $_GET['test'] != ''  ){
 -->
 <html>
 	<head>
-		<title>Ajout d'une visite</title>
+		<title>Stars'Up</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -70,7 +68,8 @@ if (isset($_GET['test']) && $_GET['test'] != ''  ){
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index_admin.php">Homepage</a></li>
+						<li class="active"><a href="index_admin.php">Accueuil</a></li>
+						<li><a href="index.php">Déconnexion</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -78,8 +77,7 @@ if (isset($_GET['test']) && $_GET['test'] != ''  ){
 				
 				<!-- Logo -->
 				<div id="logo">
-					<h1><a href="#">Starsup</a></h1>
-					<span class="tag">Ajout visite</span>
+					<h1><a href="#">Stars'Up</a></h1>
 				</div>
 			</div>
 		</div>
@@ -129,14 +127,10 @@ if (isset($_GET['test']) && $_GET['test'] != ''  ){
                ?>
                 </select>
 
-	      			<p><input type="text" placeholder="Date" name="date_visite"></p>
-	      			<p><input type="text" placeholder="test" name="test"></p>
-	      			<INPUT TYPE="submit" value=" Valider ">	
+	      			<p><input type="text" placeholder="Date" name="date_visite" required></p>
+	      			<p><INPUT TYPE="submit" name="nom" value="Valider"><p>
     		</form>
 
-              
-
-				<hr />
 				
 			</div>
 		</div>
@@ -146,33 +140,17 @@ if (isset($_GET['test']) && $_GET['test'] != ''  ){
 		<div id="tweet">
 			<div class="container">
 				<section>
-					<blockquote>&ldquo;In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat.&rdquo;</blockquote>
+					
 				</section>
 			</div>
 		</div>
 
-	<!-- Footer -->
-		<div id="footer">
-			<div class="container">
-				<section>
-					<header>
-						<h2>Get in touch</h2>
-						<span class="byline">Integer sit amet pede vel arcu aliquet pretium</span>
-					</header>
-					<ul class="contact">
-						<li><a href="#" class="fa fa-twitter"><span>Twitter</span></a></li>
-						<li class="active"><a href="#" class="fa fa-facebook"><span>Facebook</span></a></li>
-						<li><a href="#" class="fa fa-dribbble"><span>Pinterest</span></a></li>
-						<li><a href="#" class="fa fa-tumblr"><span>Google+</span></a></li>
-					</ul>
-				</section>
-			</div>
-		</div>
+
 
 	<!-- Copyright -->
 		<div id="copyright">
 			<div class="container">
-				Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+				Créateurs: <a href="#">Gaël Baudouin</a> et <a href="#">Théo Brémaud </a>
 			</div>
 		</div>
 

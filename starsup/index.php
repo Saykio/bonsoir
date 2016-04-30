@@ -1,5 +1,6 @@
 <?php 
 include("include/config.php");
+session_destroy();
 ?>
 <!DOCTYPE HTML>
 
@@ -33,7 +34,7 @@ include("include/config.php");
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index.php">Homepage</a></li>
+						<li class="active"><a href="index.php">Accueuil</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -71,28 +72,11 @@ include("include/config.php");
 			</div>
 		</div>
 
-	<!-- Footer -->
-		<div id="footer">
-			<div class="container">
-				<section>
-					<header>
-						<h2>Get in touch</h2>
-						<span class="byline">Integer sit amet pede vel arcu aliquet pretium</span>
-					</header>
-					<ul class="contact">
-						<li><a href="#" class="fa fa-twitter"><span>Twitter</span></a></li>
-						<li class="active"><a href="#" class="fa fa-facebook"><span>Facebook</span></a></li>
-						<li><a href="#" class="fa fa-dribbble"><span>Pinterest</span></a></li>
-						<li><a href="#" class="fa fa-tumblr"><span>Google+</span></a></li>
-					</ul>
-				</section>
-			</div>
-		</div>
 
 	<!-- Copyright -->
 		<div id="copyright">
 			<div class="container">
-				Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+				Créateurs: <a href="#">Gaël Baudouin</a> et <a href="#">Théo Brémaud </a>
 			</div>
 		</div>
 

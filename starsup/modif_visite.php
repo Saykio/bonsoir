@@ -1,11 +1,17 @@
 <!DOCTYPE HTML>
-<!--
-	Linear by TEMPLATED
-    templated.co @templatedco
-    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
+
 <?php 
 include("include/config.php");
+
+if (isset($_GET['modifier'])){
+
+
+$req = $dbh->query('UPDATE visiter SET NOMBRE_ETOILE_VISITE="'.$_GET['etoile'].'" WHERE ID_HEBERGEMENT="'.$_GET['hebergement'].'"');
+  
+  echo "<script>alert(\"Etoile(s) modifiée(s)\")</script>";
+
+}
+
 ?>
 <html>
 	<head>
@@ -49,13 +55,10 @@ include("include/config.php");
 	<!-- Featured -->
 		<div id="featured">
 			<div class="container">
-				<header>
-					<h2>Historique</h2>
-				</header>
 				
 				<div id="content" class="container">
 
-	<form action="consultation.php" name="ajout_visite" method="post">
+	<form action="modif_visite_debut.php" name="ajout_visite" method="post">
 
 	      				<p>Année :
 	              <select name="date">
@@ -76,11 +79,10 @@ include("include/config.php");
 	              ?>
 	               </select>
 	      			<INPUT TYPE="submit" name="valider" value="Valider">
-    		
+    		</form>	
 
 			<?php 
-			echo '<br>';
-$req = $dbh->query('SELECT * FROM visiter as V Inner join hebergement as H on V.ID_HEBERGEMENT = H.ID_HEBERGEMENT ORDER BY DATE_HEURE_VISITE DESC');
+$req = $dbh->query('SELECT * FROM visiter as V Inner join hebergement as H on V.ID_HEBERGEMENT = H.ID_HEBERGEMENT WHERE CONTRE_VISITE = 1');
 while ($donnees = $req->fetch())
 {
 	?>
@@ -108,12 +110,24 @@ while ($donnees = $req->fetch())
      echo '<img src="images/5Stars.jpg"/>'.'<br/>';
      }
      echo 'Commentaires : '.$donnees['COMMENTAIRE_VISITE'].' ('.$donnees['DATE_HEURE_VISITE'].')<br>';
-
+     ?>
+     <form action="modif_visite.php" name="modif_etoile" method="get">
+     <select name="etoile">
+     	<option>1</option>
+     	<option>2</option>
+     	<option>3</option>
+     	<option>4</option>
+     	<option>5</option>
+     </select>
+     <input type="hidden" name="hebergement" value="<?php echo $donnees['ID_HEBERGEMENT'] ?>">  
+     <INPUT TYPE="submit" name="modifier" value="Modifier">
+     </form>
+     <?php
 }
 
 $req->closeCursor(); // Termine le traitement de la requête
  ?>
-	</form>		
+		
 			</div>
 			</div>
 		</div>

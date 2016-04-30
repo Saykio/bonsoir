@@ -7,7 +7,7 @@
 -->
 <html>
 	<head>
-		<title>Page inspecteur</title>
+		<title>Stars'Up</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -30,7 +30,8 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="#">Homepage</a></li>
+						<li class="active"><a href="index_inspecteur.php">Accueuil</a></li>
+						<li><a href="index.php">Déconnexion</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -39,7 +40,6 @@
 				<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">Stars'Up</a></h1>
-					<span class="tag">Inspecteur</span>
 				</div>
 			</div>
 		</div>
@@ -47,13 +47,9 @@
 	<!-- Featured -->
 		<div id="featured">
 			<div class="container">
-				<header>
-
-				</header>
 				
-				<a href="consultation_debut.php" class="button button-style1">Commentaires</a>
+				<a href="consultation_inspecteur_debut.php" class="button button-style1">Commentaires</a>
 
-				<hr />
 				
 			</div>
 		</div>
@@ -69,28 +65,11 @@
 			</div>
 		</div>
 
-	<!-- Footer -->
-		<div id="footer">
-			<div class="container">
-				<section>
-					<header>
-						<h2>Get in touch</h2>
-						<span class="byline">Integer sit amet pede vel arcu aliquet pretium</span>
-					</header>
-					<ul class="contact">
-						<li><a href="#" class="fa fa-twitter"><span>Twitter</span></a></li>
-						<li class="active"><a href="#" class="fa fa-facebook"><span>Facebook</span></a></li>
-						<li><a href="#" class="fa fa-dribbble"><span>Pinterest</span></a></li>
-						<li><a href="#" class="fa fa-tumblr"><span>Google+</span></a></li>
-					</ul>
-				</section>
-			</div>
-		</div>
 
 	<!-- Copyright -->
 		<div id="copyright">
 			<div class="container">
-				Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+				Créateurs: <a href="#">Gaël Baudouin</a> et <a href="#">Théo Brémaud </a>
 			</div>
 		</div>
 

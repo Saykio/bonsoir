@@ -4,12 +4,12 @@
     templated.co @templatedco
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
-<?php 
+<?php
 include("include/config.php");
 ?>
 <html>
 	<head>
-		<title>Stars'up</title>
+		<title>Stars'Up</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -49,18 +49,18 @@ include("include/config.php");
 	<!-- Featured -->
 		<div id="featured">
 			<div class="container">
+
+			
 				<header>
 					<h2>Historique</h2>
 				</header>
 				
 				<div id="content" class="container">
-
-	<form action="consultation.php" name="ajout_visite" method="post">
+<form action="modif_visite_debut.php" name="ajout_visite" method="post">
 
 	      				<p>Année :
 	              <select name="date">
 	              <?php
-	              $truc = '2016';
 	             	$req = $dbh->query('SELECT * FROM visiter');
 					while ($donnees = $req->fetch())
 	              	{
@@ -75,16 +75,18 @@ include("include/config.php");
 	             	}
 	              ?>
 	               </select>
-	      			<INPUT TYPE="submit" name="valider" value="Valider">
-    		
-
+	      			<INPUT TYPE="submit" value="Valider">
+    		</form>
+    		<form  action="modif_visite.php" name="ajout_visite" method="post">
+				<INPUT TYPE="submit" value="Voir tous">
+				</form>
 			<?php 
-			echo '<br>';
-$req = $dbh->query('SELECT * FROM visiter as V Inner join hebergement as H on V.ID_HEBERGEMENT = H.ID_HEBERGEMENT ORDER BY DATE_HEURE_VISITE DESC');
+
+
+$req = $dbh->query('SELECT * FROM visiter as V Inner join hebergement as H on V.ID_HEBERGEMENT = H.ID_HEBERGEMENT Inner join gerer as G On V.ID_HEBERGEMENT = G.ID_HEBERGEMENT
+				   WHERE CONTRE_VISITE = 1 AND YEAR(DATE_HEURE_VISITE) = "'.$_POST['date'].'" ');
 while ($donnees = $req->fetch())
 {
-	?>
-     <?php
      echo '<br>';
      echo utf8_encode('<b>'.$donnees['NOM_HEBERGEMENT'].'</b>&nbsp&nbsp  ');
      if ($donnees['NOMBRE_ETOILE_VISITE'] ==1)
@@ -112,11 +114,13 @@ while ($donnees = $req->fetch())
 }
 
 $req->closeCursor(); // Termine le traitement de la requête
+
  ?>
-	</form>		
+			
 			</div>
 			</div>
 		</div>
+
 
 
 	<!-- Tweet -->

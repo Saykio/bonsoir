@@ -32,9 +32,8 @@ include("include/config.php");
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index_admin.php">Accueuil</a></li>
+						<li class="active"><a href="index_inspecteur.php">Accueuil</a></li>
 						<li><a href="index.php">Déconnexion</a></li>
-					</ul>
 				</nav>
 			</div>
 			<div class="container"> 
@@ -55,12 +54,12 @@ include("include/config.php");
 				
 				<div id="content" class="container">
 
-	<form action="consultation.php" name="ajout_visite" method="post">
+	<form action="consultation_inspecteur.php" name="ajout_visite" method="post">
 
 	      				<p>Année :
 	              <select name="date">
 	              <?php
-	              $truc = '2016';
+	              	$truc = '2016';
 	             	$req = $dbh->query('SELECT * FROM visiter');
 					while ($donnees = $req->fetch())
 	              	{
@@ -75,16 +74,14 @@ include("include/config.php");
 	             	}
 	              ?>
 	               </select>
-	      			<INPUT TYPE="submit" name="valider" value="Valider">
-    		
+	      			<INPUT TYPE="submit" value="Valider">
+    		</form>
 
 			<?php 
-			echo '<br>';
-$req = $dbh->query('SELECT * FROM visiter as V Inner join hebergement as H on V.ID_HEBERGEMENT = H.ID_HEBERGEMENT ORDER BY DATE_HEURE_VISITE DESC');
+
+$req = $dbh->query('SELECT * FROM visiter as V Inner join hebergement as H on V.ID_HEBERGEMENT = H.ID_HEBERGEMENT WHERE ID_INSPECTEUR = '.$_SESSION['id_inspecteur'].' ORDER BY DATE_HEURE_VISITE DESC');
 while ($donnees = $req->fetch())
 {
-	?>
-     <?php
      echo '<br>';
      echo utf8_encode('<b>'.$donnees['NOM_HEBERGEMENT'].'</b>&nbsp&nbsp  ');
      if ($donnees['NOMBRE_ETOILE_VISITE'] ==1)
@@ -113,10 +110,12 @@ while ($donnees = $req->fetch())
 
 $req->closeCursor(); // Termine le traitement de la requête
  ?>
-	</form>		
+			
 			</div>
+
 			</div>
 		</div>
+
 
 
 	<!-- Tweet -->
